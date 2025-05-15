@@ -1,4 +1,6 @@
 # Dongman
+## 본 저장소는 모든 프로젝트 파일에 관한 총괄 저장소 입니다.
+
 25.05.15 업데이트 
 https://www.figma.com/design/tPXTx3xhPB6JhA1DWHtvTk/Untitled?node-id=0-1&t=jvUpc1puEwlt1ThD-1
 
