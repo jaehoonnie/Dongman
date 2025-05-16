@@ -23,7 +23,7 @@ https://www.figma.com/design/tPXTx3xhPB6JhA1DWHtvTk/Untitled?node-id=0-1&t=jvUpc
 
 #### 참조
 ```
-Dongman - app - build 파일은 삭제하고 업로드 하면 잘 된다.
+Dongman - app - build 파일은 삭제하고 업로드 할것.
 ```
 
 
