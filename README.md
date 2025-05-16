@@ -59,4 +59,8 @@ git commit -m "commit"
 git push origin master
 
 이후 github에서 기본 branch를 master로 변경하면 끝.
+
+p.s:
+1. git lfs install로 lfs 설치해야함.
+2. git bash로 수행해야함.
 ```
