@@ -1,7 +1,12 @@
 # Dongman
-## 본 저장소는 모든 프로젝트 파일에 관한 총괄 저장소 입니다.
+### 🏋️‍♀️ 동만이 (Dongmani) - 오픈소스전문프로젝트
 
-25.05.15 업데이트 
+> "운동은 함께할 때 더 즐겁다"  
+> 동호회 기반의 **참여율 추적**, **인증 시스템**, **이미지 기반 출석 체크**까지 가능한 스마트 커뮤니티 앱
+
+---
+
+FIGMA:
 https://www.figma.com/design/tPXTx3xhPB6JhA1DWHtvTk/Untitled?node-id=0-1&t=jvUpc1puEwlt1ThD-1
 
 #### 수정사항
@@ -22,8 +27,14 @@ https://www.figma.com/design/tPXTx3xhPB6JhA1DWHtvTk/Untitled?node-id=0-1&t=jvUpc
 </br>
 
 #### 참조
-```
-Dongman - app - build 파일은 삭제하고 업로드 할것. (따로 올려둠) 
-```
+
+- Dongman - app - build 파일은 삭제하고 업로드 할 것. (따로 올려둠)
+- 올릴 때, res, java, AndroidManifest.xml
+이 3개의 폴더 및 파일만 업로드하고 복붙할 것
+
+- The project is using an incompatible version (AGP 8.10.0) of the Android Gradle plugin. Latest supported version is AGP 8.9.0
+See Android Studio & AGP compatibility options.
+오류 발생 시, AGP Update 할 것.
+
 
 
