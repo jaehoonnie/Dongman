@@ -59,5 +59,4 @@ git commit -m "commit"
 git push origin master
 
 이후 github에서 기본 branch를 master로 변경하면 끝.
-
 ```
