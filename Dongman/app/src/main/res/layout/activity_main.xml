@@ -4,15 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- 상단에서 10 % 내려온 지점 -->
+    <!-- 상단 5 % 가이드 -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide_top10"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.05" />
-
-    <!-- 스크롤 콘텐츠 -->
+ㅔ
+    <!-- ──────────── 본문 박스 (padding 24dp) ──────────── -->
     <ScrollView
         android:id="@+id/scrollContent"
         android:layout_width="0dp"
@@ -29,7 +29,7 @@
             android:paddingStart="24dp"
             android:paddingEnd="24dp">
 
-            <!-- 섹션 1 -->
+            <!-- ───── 섹션 1 ───── -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -41,21 +41,24 @@
                     android:layout_height="wrap_content"
                     android:text="개신동"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="에 새로 생긴 모임"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp" />
             </LinearLayout>
 
-            <include layout="@layout/item_temp_row" />
-            <include layout="@layout/item_temp_row" />
-            <include layout="@layout/item_temp_row" />
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:id="@+id/list_new"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
 
-            <!-- 더보기 1 -->
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_more_new"
                 android:layout_width="350dp"
                 android:layout_height="45dp"
                 android:text="더보기"
@@ -65,9 +68,9 @@
                 style="@style/Widget.Material3.Button"
                 android:layout_marginTop="12dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="18dp"/>
+                android:layout_marginBottom="18dp" />
 
-            <!-- 섹션 2 -->
+            <!-- ───── 섹션 2 ───── -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -79,23 +82,24 @@
                     android:layout_height="wrap_content"
                     android:text="운동"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="이 처음이라면?"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:id="@+id/list_beginner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
 
-            <!-- 리스트 2-1 ~ 2-3 -->
-            <include layout="@layout/item_temp_row" />
-            <include layout="@layout/item_temp_row" />
-            <include layout="@layout/item_temp_row" />
-
-            <!-- 더보기 2 -->
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_more_beginner"
                 android:layout_width="350dp"
                 android:layout_height="45dp"
                 android:text="더보기"
@@ -105,11 +109,11 @@
                 style="@style/Widget.Material3.Button"
                 android:layout_marginTop="12dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="18dp"/>
+                android:layout_marginBottom="18dp" />
         </LinearLayout>
     </ScrollView>
 
-    <!-- 하단바 위 검은 선 -->
+    <!-- ──────────── 하단부 (padding 영향 없음) ──────────── -->
     <View
         android:id="@+id/divider_line"
         android:layout_width="0dp"
@@ -117,20 +121,23 @@
         android:background="#A0A0A0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bottomNav"/>
+        app:layout_constraintBottom_toTopOf="@id/bottomNav" />
 
-    <!-- 하단 네비게이션 -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#ffffff"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="#ffffff">
+        app:layout_constraintBottom_toBottomOf="parent">
 
+        <!-- 홈 -->
         <LinearLayout
+            android:id="@+id/nav_home"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -139,15 +146,17 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/home_icon"/>
+                android:src="@drawable/home_icon" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="홈"
-                android:textSize="10sp"/>
+                android:textSize="10sp" />
         </LinearLayout>
 
+        <!-- 친구 목록 -->
         <LinearLayout
+            android:id="@+id/nav_friend"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -156,15 +165,17 @@
             <ImageView
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:src="@drawable/friendlist_icon"/>
+                android:src="@drawable/friendlist_icon" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="친구 목록"
-                android:textSize="10sp"/>
+                android:textSize="10sp" />
         </LinearLayout>
 
+        <!-- 내 채팅 -->
         <LinearLayout
+            android:id="@+id/nav_chat"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -173,15 +184,17 @@
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:src="@drawable/chatting_icon"/>
+                android:src="@drawable/chatting_icon" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="내 채팅"
-                android:textSize="10sp"/>
+                android:textSize="10sp" />
         </LinearLayout>
 
+        <!-- 내 프로필 -->
         <LinearLayout
+            android:id="@+id/nav_profile"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -190,12 +203,12 @@
             <ImageView
                 android:layout_width="27dp"
                 android:layout_height="27dp"
-                android:src="@drawable/myprofile_icon"/>
+                android:src="@drawable/myprofile_icon" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="내 프로필"
-                android:textSize="10sp"/>
+                android:textSize="10sp" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
