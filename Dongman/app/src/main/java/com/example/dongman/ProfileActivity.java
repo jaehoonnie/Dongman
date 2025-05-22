@@ -20,6 +20,9 @@ public class ProfileActivity extends AppCompatActivity {
         setTitle(findViewById(R.id.row_like),   "찜한 모임");
         setTitle(findViewById(R.id.row_alarm),  "알림 설정");
         setTitle(findViewById(R.id.row_logout), "로그아웃");
+        setTitle(findViewById(R.id.row_login),  "로그인 (임시)");
+        findViewById(R.id.row_login).setOnClickListener(v ->          // 클릭 → 로그인 화면
+                startActivity(new Intent(this, LoginActivity.class)));
 
         // 프로필 수정 → EditProfileActivity
         findViewById(R.id.btn_edit_profile)
