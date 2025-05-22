@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
@@ -16,23 +17,40 @@ public class MainActivity extends AppCompatActivity {
     private final List<Post> postsNew = new ArrayList<>();
     private final List<Post> postsBeginner = new ArrayList<>();
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        seed();                         // 더미 3개씩 생성
+        seed();
 
         LayoutInflater inf = LayoutInflater.from(this);
-        fillSection(findViewById(R.id.list_new),      postsNew,      inf);
-        fillSection(findViewById(R.id.list_beginner), postsBeginner, inf);
+        fill(findViewById(R.id.list_new),      postsNew,      inf);
+        fill(findViewById(R.id.list_beginner), postsBeginner, inf);
 
-        // 하단바 아무 곳이나 터치하면 로그인 화면 이동
-        findViewById(R.id.bottomNav)
-                .setOnClickListener(v -> startActivity(new Intent(this, LoginActivity.class)));
+        /* ───── 터치 영역별 행동 ───── */
+
+        // (A) 메인 콘텐츠 영역(하단 네비 위) → LoginActivity
+        ScrollView content = findViewById(R.id.scrollContent);
+        content.setOnClickListener(v ->
+                startActivity(new Intent(this, LoginActivity.class)));
+
+        // (B) 하단 네비게이션 각 아이콘
+        findViewById(R.id.nav_profile)
+                .setOnClickListener(v -> startActivity(
+                        new Intent(this, ProfileActivity.class)));
+
+        findViewById(R.id.nav_chat)
+                .setOnClickListener(v -> startActivity(
+                        new Intent(this, ChatActivity.class)));
+
+        findViewById(R.id.nav_friend)
+                .setOnClickListener(v -> { /* 친구 목록 화면 */ });
+
+        findViewById(R.id.nav_home)
+                .setOnClickListener(v -> { /* 홈: 현재 화면 */ });
     }
 
-    private void fillSection(LinearLayout target, List<Post> data, LayoutInflater inf) {
+    private void fill(LinearLayout target, List<Post> data, LayoutInflater inf) {
         for (Post p : data) {
             View row = inf.inflate(R.layout.item_temp_row, target, false);
             ((TextView) row.findViewById(R.id.row_title)).setText(p.title);
@@ -52,10 +70,10 @@ public class MainActivity extends AppCompatActivity {
     private void seed() {
         for (int i = 0; i < 3; i++) {
             Post sample = new Post();
-            sample.title     = "배드민턴 모임";
-            sample.meta      = "모집 1/10   조회수 : 1";
-            sample.location  = "충북대학교";
-            sample.imageRes  = R.drawable.placeholder_thumbnail;
+            sample.title    = "배드민턴 모임";
+            sample.meta     = "모집 1/10   조회수 : 1";
+            sample.location = "충북대학교";
+            sample.imageRes = R.drawable.placeholder_thumbnail;
             postsNew.add(sample);
             postsBeginner.add(sample);
         }

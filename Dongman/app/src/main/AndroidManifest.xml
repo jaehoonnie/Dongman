@@ -5,9 +5,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/dongman_icon"
         android:label="동만이"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/dongman_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.Dongman">
 
@@ -50,6 +50,18 @@
 <!--        <activity-->
 <!--            android:name=".ChatActivity"-->
 <!--            android:exported="false"/>-->
+
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false"/>
+        
+        <activity
+            android:name=".EditProfileActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name=".ChatActivity"
+            android:exported="false"/>
 
     </application>
 </manifest>
